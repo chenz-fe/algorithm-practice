@@ -1,3 +1,4 @@
+/* eslint-disable no-eval */
 class Stack {
   constructor() {
     this.items = []
@@ -19,8 +20,43 @@ class Stack {
   }
 }
 
-const s = new Stack()
+// 合法括号
+// function isLegalBracket(str) {
+//   const stack = new Stack()
+//   for (let i = 0; i <= str.length; i++) {
+//     if (str[i] === '(') {
+//       stack.push(str[i])
+//     } else if (str[i] === ')') {
+//       if (!stack.isEmpty()) {
+//         stack.pop()
+//       } else {
+//         return false
+//       }
+//     }
+//   }
+//   return stack.isEmpty()
+// }
 
-s.push(3)
+// console.log(isLegalBracket('(123)))'))
+// console.log(isLegalBracket('(123)'))
+// console.log(isLegalBracket('(1(4)3)'))
 
-console.log(s)
+// 计算后缀表达式
+// ['4','10','5','/','+']
+function calcExp(exp) {
+  let stack = new Stack()
+  for (let i = 0; i < exp.length; i++) {
+    let item = exp[i]
+    if (['+', '-', '*', '/'].indexOf(item) > -1) {
+      const value1 = stack.pop()
+      const value2 = stack.pop()
+      const newVal = parseInt(eval(value2 + item + value1))
+      stack.push(newVal.toString())
+    } else {
+      stack.push(item)
+    }
+  }
+  return stack.pop()
+}
+
+console.log(calcExp(['4', '10', '5', '/', '+']))
