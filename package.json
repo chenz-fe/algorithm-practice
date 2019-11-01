@@ -4,7 +4,7 @@
   "description": "algorithm-practice",
   "main": "index.js",
   "scripts": {
-    "test": "jest ./test"
+    "test": "jest ./test/sort"
   },
   "repository": {
     "type": "git",

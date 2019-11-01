@@ -27,7 +27,8 @@ export const selectSort = arr => {
   for (i = 0; i < len - 1; i++) {
     minIndex = i
     minValue = arr[minIndex]
-    for (j = i + 1; j < len; j++) { // 通过循环选出最小的
+    for (j = i + 1; j < len; j++) {
+      // 通过循环选出最小的
       if (arr[j] < minValue) {
         minIndex = j
         minValue = arr[minIndex]
@@ -39,4 +40,63 @@ export const selectSort = arr => {
     arr[minIndex] = tmp
   }
   return arr
+}
+
+// 快速排序
+// export const quickSort = arr => {
+//   let left = []
+//   let right = []
+//   let target = arr[0]
+//   if (arr.length <= 1) {
+//     return arr
+//   } else {
+//     arr.forEach((ele, index) => {
+//       if (index === 0) return
+//       if (ele <= target) {
+//         left.push(ele)
+//       } else {
+//         right.push(ele)
+//       }
+//     })
+//   }
+//   return [...quickSort(left), target, ...quickSort(right)]
+// }
+
+export const quickSort = arr => {
+  let result = [...arr]
+  let length = result.length - 1
+  let parts = [[0, length]]
+
+  while (parts.length) {
+    let part = parts.shift()
+
+    let l = part[0]
+    let r = part[1]
+
+    if (l >= r) continue
+    let temp = result[l]
+    let i = l
+    let j = r
+
+    while (i < j && j > i) {
+      while (result[j] > temp) {
+        j--
+      }
+      if (i < j) {
+        result[i] = result[j]
+        i++
+      }
+      while (result[i] < temp && i < length && i !== j) {
+        i++
+      }
+      if (i < j) {
+        result[j] = result[i]
+        j--
+      }
+    }
+    result[i] = temp
+    parts.push([l, i - 1], [i + 1, r])
+  }
+  console.log(result)
+  return result
 }
