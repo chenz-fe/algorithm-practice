@@ -89,4 +89,3 @@ let rootNode = t.getRoot()
 // t.preOrder(rootNode)
 // t.postOrder(rootNode)
 console.log(t.size())
-

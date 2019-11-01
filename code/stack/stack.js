@@ -59,4 +59,6 @@ function calcExp(exp) {
   return stack.pop()
 }
 
-console.log(calcExp(['4', '10', '5', '/', '+']))
+// console.log(calcExp(['4', '10', '5', '/', '+']))
+
+module.exports = Stack
