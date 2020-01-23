@@ -96,7 +96,6 @@ module.exports = {
         "no-duplicate-case": 2,
         "no-empty-character-class": 2,
         "no-empty-pattern": 2,
-        "no-eval": 2,
         "no-ex-assign": 2,
         "no-extend-native": 2,
         "no-extra-bind": 2,
@@ -107,7 +106,6 @@ module.exports = {
         "no-fallthrough": 2,
         "no-floating-decimal": 2,
         "no-func-assign": 2,
-        "no-implied-eval": 2,
         "no-inner-declarations": [
             2, "functions"
         ],
@@ -255,7 +253,6 @@ module.exports = {
         "yoda": [
             2, "never"
         ],
-        "prefer-const": 2,
         "no-debugger": process.env.NODE_ENV === "production"
             ? 2
             : 0,
